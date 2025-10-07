@@ -11,21 +11,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                bat 'echo Building completed successfully!'
+                bat 'echo Building completed successfully! > build_output.txt'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                bat 'echo All tests passed successfully!'
+                bat 'echo All tests passed successfully! > test_result.txt'
             }
         }
 
         stage('Archive') {
             steps {
                 echo 'Archiving artifacts...'
-                bat 'echo Build artifacts are being archived.'
+                bat 'echo Archiving files... > archive_note.txt'
                 archiveArtifacts artifacts: '**/*.txt', fingerprint: true
             }
         }
